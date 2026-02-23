@@ -71,7 +71,6 @@
 }
 
 .navbar-links li:hover {
-  background: rgba(255, 255, 255, 0.1);
   color: #34B5E5;
 }
 
@@ -102,6 +101,22 @@
   background: linear-gradient(180deg, #42c5f5 0%, #0282d9 100%); 
   box-shadow: 0 0 20px rgba(52, 181, 229, 0.6), 
               0 0 40px rgba(52, 181, 229, 0.2); 
+}
+
+
+.menu-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); 
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+.mobile-cta {
+  display: none;
 }
 
 
@@ -162,4 +177,99 @@
   .navbar-cta {
     display: none; 
   }
+}
+
+
+
+
+@media (max-width: 480px) {
+
+  .navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .navbar-container {
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+}
+
+
+@media (max-width: 480px) {
+  .navbar-logo img {
+    width: 72px;
+    height: 32px;
+    flex-shrink: 0;
+    aspect-ratio: 9/4;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--Spacing-Radius-radius-100, 100px);
+    background: linear-gradient(180deg, #34B5E5 0%, #016CB5 100%);
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-toggle img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+}
+
+.navbar-cta {
+  text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+
+  .mobile-cta {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .navbar-cta {
+  text-decoration: none;
+}
+
+
+
+  .mobile-cta a {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    border-radius: var(--Spacing-Radius-radius-100, 100px);
+    background: linear-gradient(180deg, #34B5E5 0%, #016CB5 100%);
+    border: none;
+    cursor: pointer;
+  }
+
+
 }

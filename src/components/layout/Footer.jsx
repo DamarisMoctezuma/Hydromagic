@@ -1,5 +1,6 @@
 import './footer.css';
 
+import avisoPrivacidad from '@/assets/doc/avisodeprivacidad.pdf';
 import footerLogo from '@/assets/images/footer.png';
 
 export default function Footer() {
@@ -17,8 +18,7 @@ export default function Footer() {
 
           <p className="footer-description">
             Creamos experiencias de bienestar a través de nuestros diseños, confort y calidad.
-            <br />
-            <br />
+            <br /><br />
             Conoce nuestros modelos o solicita una asesoría para tu hogar o proyecto.
           </p>
         </div>
@@ -74,15 +74,13 @@ export default function Footer() {
             Ciudad de México
           </p>
 
-          <p className="footer-text">contacto@hydromagic.com.mx</p>
-
+          <p className="footer-text">contacto@hydromagic.mx</p>
           <p className="footer-text">55 5573 7889</p>
           <p className="footer-text">55 5573 4934</p>
           <p className="footer-text">55 5573 5539</p>
         </div>
 
       </div>
-
 
       <div className="footer-divider" />
 
@@ -98,9 +96,15 @@ export default function Footer() {
 
           <span className="footer-legal-divider" />
 
-          <a href="#" className="footer-legal-link">
+          <a
+            href={avisoPrivacidad}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-legal-link"
+          >
             Aviso de privacidad
           </a>
+
         </div>
       </div>
 

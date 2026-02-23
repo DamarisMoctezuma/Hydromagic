@@ -1,25 +1,26 @@
+import {
+  HashRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
+
+import Distribuidores from './components/distribuidores/Distribuidores';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
-import Brands from './components/sections/Brands';
-import CallToAction from './components/sections/CallToAction';
-import Contactanos from './components/sections/Contactanos';
-import Hero from './components/sections/Hero';
-import Products from './components/sections/Productos';
-import Servicios from './components/sections/Servicios';
-import Testimoniales from './components/sections/Testimoniales';
+import Producto from './components/productos/Producto';
+import Home from './components/sections/Home';
 
 export default function App() {
   return (
-    <>
+    <HashRouter>
       <Navbar />
-      <Hero />
-      <Brands />
-      <Servicios />
-      <CallToAction />
-      <Products />
-      <Testimoniales />
-      <Contactanos />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Producto />} />
+        <Route path="/distribuidores" element={<Distribuidores />} />
+      </Routes>
+
       <Footer />
-    </>
-  )
+    </HashRouter>
+  );
 }

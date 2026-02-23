@@ -25,6 +25,7 @@ body, html {
   align-self: stretch;
   border-radius: 0;
   background: var(--Hydromagic-Negro, #000);
+  
 }
 
 
@@ -52,6 +53,7 @@ body, html {
   height: 48px;
   aspect-ratio: 9 / 4;
   object-fit: contain;
+  margin: 0;
 }
 
 .footer-description {
@@ -163,4 +165,66 @@ body, html {
   width: 1px;
   height: 16px;
   background: var(--Hydromagic-Blanco, #FFF);
+}
+
+
+@media (max-width: 768px) {
+
+
+  .footer {
+    padding: 80px 16px;
+    align-items: flex-start !important;
+  }
+
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .footer-brand {
+    margin-top: 0;
+    align-items: flex-start !important;
+  }
+
+  .footer-column {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: var(--Spacing-Padding-padding-12, 12px);
+  }
+
+.footer-logo {
+  width: 108px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0;
+}
+
+
+
+  .footer-divider {
+    margin: 40px 0 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-copy {
+    padding-left: 0;
+  }
+
+  .footer-legal {
+    justify-content: center;
+  }
+
 }
