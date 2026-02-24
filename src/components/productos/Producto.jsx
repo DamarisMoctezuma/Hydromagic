@@ -590,22 +590,22 @@ export default function Producto() {
     },
   ];
 
-  const generarFichaTecnicaURL = (nombre) => {
+const generarFichaTecnicaURL = (nombre) => {
   const baseURL = "https://hydromagic.com.mx/resources/technical-specifications/";
 
-  // Normalizar texto
   const slug = nombre
     .toLowerCase()
-    .normalize("NFD") // quitar acentos
+    .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "-") // espacios a guiones
-    .replace(/\//g, "-") // reemplazar /
-    .replace(/ii/g, "2")
-    .replace(/iii/g, "3")
-    .replace(/i/g, "1");
+    .replace(/\//g, "-")
+    .replace(/\siii$/i, " 3")
+    .replace(/\sii$/i, " 2")
+    .replace(/\si$/i, " 1")
+    .replace(/\s+/g, "-");
 
   return `${baseURL}file-${slug}.pdf`;
 };
+
 
 
 
@@ -659,8 +659,22 @@ export default function Producto() {
             </div>
           ))}
         </div>
+
+
+        <div className="catalogo-btn-wrapper">
+          <button
+            className="catalogo-completo-btn"
+            onClick={() => {
+              window.open("/assets/doc/catalogo-digital-2025.pdf", "_blank");
+            }}
+          >
+            Descubre nuestro catálogo completo
+          </button>
+        </div>
+
       </section>
 
+      
       {modeloActivo && (
         <div className="modal-overlay" onClick={() => setModeloActivo(null)}>
           <div className="modal-card apple-modal" onClick={(e) => e.stopPropagation()}>
@@ -733,6 +747,8 @@ export default function Producto() {
           </div>
         </div>
       )}
+
+
 
       <Contactanos />
     </>

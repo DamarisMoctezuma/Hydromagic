@@ -7,6 +7,8 @@ import {
 } from 'react';
 
 import brand1 from '@/assets/images/brand1.png';
+import brand10 from '@/assets/images/brand10.png';
+import brand11 from '@/assets/images/brand11.png';
 import brand2 from '@/assets/images/brand2.png';
 import brand3 from '@/assets/images/brand3.png';
 import brand4 from '@/assets/images/brand4.png';
@@ -14,6 +16,7 @@ import brand5 from '@/assets/images/brand5.png';
 import brand6 from '@/assets/images/brand6.png';
 import brand7 from '@/assets/images/brand7.svg';
 import brand8 from '@/assets/images/brand8.svg';
+import brand9 from '@/assets/images/brand9.png';
 
 export default function Brands() {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,16 +24,15 @@ export default function Brands() {
 
   const brands = [
     brand1, brand2, brand3, brand4, 
-    brand5, brand6, brand7, brand8
+    brand5, brand6, brand7, brand8,
+    brand9, brand10, brand11
   ];
 
   useEffect(() => {
-    // Detectar si es móvil para ajustar el renderizado de marcas
     const checkMobile = () => setIsMobile(window.innerWidth <= 480);
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Intersection Observer para la animación de entrada
     const cards = sectionRef.current.querySelectorAll(".brand-card");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -51,8 +53,7 @@ export default function Brands() {
     };
   }, []);
 
-  // En escritorio duplicamos las marcas para el efecto de scroll infinito
-  // En móvil usamos solo el array original para la cuadrícula de 90x51px
+
   const displayBrands = isMobile ? brands : [...brands, ...brands];
 
   return (

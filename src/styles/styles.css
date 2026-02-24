@@ -1608,6 +1608,43 @@ html {
   }
 }
 
+.catalogo-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.catalogo-completo-btn {
+  display: flex;
+  padding: var(--Spacing-Padding-padding-16, 16px) 24px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Spacing-Padding-padding-8, 8px);
+
+  border-radius: var(--Spacing-Radius-radius-100, 100px);
+  background: var(--Gradiente, linear-gradient(180deg, #34B5E5 0%, #016CB5 100%));
+
+  color: var(--Colors-Neutral-White-white-50, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: var(--Spacing-Fonts-Desktop-Body-LG, 18px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.catalogo-completo-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(1, 108, 181, 0.35);
+}
+
 
 
 

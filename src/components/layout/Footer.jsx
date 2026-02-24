@@ -1,9 +1,32 @@
 import './footer.css';
 
+import {
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
+
 import avisoPrivacidad from '@/assets/doc/avisodeprivacidad.pdf';
 import footerLogo from '@/assets/images/footer.png';
 
 export default function Footer() {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToSection = (sectionId) => {
+
+    // Si ya estamos en Home, solo hacemos scroll
+    if (location.pathname === "/") {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Si estamos en otra página, navegamos y mandamos el state
+      navigate("/", { state: { scrollTo: sectionId } });
+    }
+  };
+
   return (
     <footer className="footer">
 
@@ -24,12 +47,27 @@ export default function Footer() {
         </div>
 
         <div className="footer-column">
-          <a href="#" className="footer-link footer-link--active">Inicio</a>
-          <a href="#" className="footer-link">Nosotros</a>
-          <a href="#" className="footer-link">Servicios</a>
-          <a href="#" className="footer-link">Productos</a>
-          <a href="#" className="footer-link">Distribuidores</a>
-          <a href="#" className="footer-link">Contacto</a>
+
+          <button onClick={() => goToSection("inicio")} className="footer-link footer-button">
+            Inicio
+          </button>
+
+          <button onClick={() => goToSection("nosotros")} className="footer-link footer-button">
+            Nosotros
+          </button>
+
+          <button onClick={() => goToSection("productos")} className="footer-link footer-button">
+            Productos
+          </button>
+
+          <button onClick={() => goToSection("distribuidores")} className="footer-link footer-button">
+            Distribuidores
+          </button>
+
+          <button onClick={() => goToSection("contacto")} className="footer-link footer-button">
+            Contacto
+          </button>
+
         </div>
 
         <div className="footer-column">

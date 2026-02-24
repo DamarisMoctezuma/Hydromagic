@@ -13,6 +13,15 @@ body, html {
   font-family: 'Poppins', sans-serif;
 }
 
+.footer-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
 
 
 .footer {

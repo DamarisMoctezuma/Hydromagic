@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react';
 
+import catalogoPDF from '../../assets/doc/catalogo-digital-2025.pdf';
 import tina1 from '../../assets/images/tina1.png';
 import tina4 from '../../assets/images/tina4.png';
 import atenasII from '../../assets/images/Tina=AtenasII.png';
@@ -635,6 +636,18 @@ export default function Modelos() {
         />
       ))}
     </div>
+
+    <div className="catalogo-btn-wrapper">
+        <button
+          className="catalogo-completo-btn"
+          onClick={() => window.open(catalogoPDF, "_blank")}
+        >
+          Descubre nuestro catálogo completo
+        </button>
+      </div>
+
+
+    
 
     {modeloActivo && (
       <div className="modal-overlay" onClick={() => setModeloActivo(null)}>
