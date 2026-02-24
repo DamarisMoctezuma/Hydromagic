@@ -134,12 +134,15 @@ export default function Testimoniales() {
   };
 
   return (
-    <section
-      id="testimoniales"
-      className="testimoniales-section"
-      style={{ backgroundImage: `url(${testimonialesBg})` }}
-      ref={sectionRef}
-    >
+  <section
+    id="testimoniales"
+    className="testimoniales-section"
+    style={{ backgroundImage: `url(${testimonialesBg})` }}
+    ref={sectionRef}
+  >
+    {/* Nuevo contenedor de Grid */}
+    <div className="testimoniales-container-grid">
+      
       {/* Botones navegación */}
       <div className="testimoniales-top-buttons animate-apple">
         <img
@@ -212,6 +215,8 @@ export default function Testimoniales() {
           />
         ))}
       </div>
-    </section>
-  );
+      
+    </div>
+  </section>
+);
 }

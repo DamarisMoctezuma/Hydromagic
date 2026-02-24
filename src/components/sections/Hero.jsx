@@ -29,15 +29,14 @@ export default function Hero() {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
-    <section
-        id="inicio"
-        className="hero"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-        }}
-      >
+    // En Hero.jsx
+<section
+    id="inicio"
+    className="hero"
+    style={{
+      backgroundImage: `url(${heroBg})`,
+    }}
+>
 
       <div className="hero-container">
         <div

@@ -54,10 +54,11 @@ export default function Brands() {
   }, []);
 
 
-  const displayBrands = isMobile ? brands : [...brands, ...brands];
+const displayBrands = isMobile ? [...brands, ...brands] : [...brands, ...brands, ...brands];
 
-  return (
-    <section className="brands-section" ref={sectionRef}>
+return (
+  <section className="brands-section" ref={sectionRef}>
+    <div className="brands-container-grid">
       <div className="brands-slider">
         <div className="brands-track">
           {displayBrands.map((brand, index) => (
@@ -65,7 +66,7 @@ export default function Brands() {
               className="brand-card"
               key={index}
               style={{ 
-                transitionDelay: isMobile ? '0s' : `${(index % brands.length) * 0.1}s` 
+                transitionDelay: `${(index % brands.length) * 0.1}s` 
               }}
             >
               <img src={brand} alt={`Brand ${index + 1}`} />
@@ -73,6 +74,7 @@ export default function Brands() {
           ))}
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

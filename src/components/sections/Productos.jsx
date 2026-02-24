@@ -521,6 +521,21 @@ export default function Modelos() {
   const [modeloActivo, setModeloActivo] = useState(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const generarFichaTecnicaURL = (nombre) => {
+    const baseURL = "https://hydromagic.com.mx/resources/technical-specifications/";
+
+    const slug = nombre
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\//g, "-")
+      .replace(/\siii$/i, " 3")
+      .replace(/\sii$/i, " 2")
+      .replace(/\si$/i, " 1")
+      .replace(/\s+/g, "-");
+
+    return `${baseURL}file-${slug}.pdf`;
+  };
 
   const modelosPorPagina = 4;
   const totalPaginas = Math.ceil(modelosData.length / modelosPorPagina);
@@ -751,18 +766,33 @@ export default function Modelos() {
           </div>
 
           <div className="modal-footer">
-            <button
-              className="btn-cotizar-modal"
-              onClick={() => {
-                const mensaje = `Hola, me gustaría cotizar la tina ${modeloActivo.nombre}`;
-                const url = `https://wa.me/525591987726?text=${encodeURIComponent(mensaje)}`;
-                window.open(url, "_blank");
-              }}
-            >
-              Cotizar ahora
-            </button>
 
-          </div>
+  {/* BOTON NEGRO */}
+  <button
+    className="btn-ficha-modal"
+    onClick={() => {
+      const url = generarFichaTecnicaURL(modeloActivo.nombre);
+      window.open(url, "_blank");
+    }}
+  >
+    Ver ficha técnica
+  </button>
+
+
+  {/* BOTON AZUL */}
+  <button
+    className="btn-contactar-modal"
+    onClick={() => {
+      const mensaje = `Hola, quiero información sobre la tina ${modeloActivo.nombre}`;
+      const url = `https://wa.me/525591987726?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, "_blank");
+    }}
+  >
+    Contáctanos ahora
+  </button>
+
+</div>
+
 
 
         </div>

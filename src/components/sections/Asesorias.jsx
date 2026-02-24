@@ -32,10 +32,12 @@ export default function Asesorias() {
 
   return (
     <section 
-      ref={sectionRef}
-      className={`servicios-section ${isVisible ? "apple-show" : ""}`}
-    >
-
+    ref={sectionRef}
+    className={`servicios-section ${isVisible ? "apple-show" : ""}`}
+  >
+    {/* Nuevo contenedor de Grid */}
+    <div className="servicios-container-grid">
+      
       <h2 className={`servicios-title ${isVisible ? "apple-title-show" : ""}`}>
         Servicios y asesorías para tu instalación
       </h2>
@@ -57,6 +59,7 @@ export default function Asesorias() {
         Todo para que la experiencia que brindamos en Hydromagic este en todo momento.
       </p>
 
-    </section>
-  );
+    </div>
+  </section>
+);
 }
