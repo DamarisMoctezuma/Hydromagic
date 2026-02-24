@@ -88,24 +88,48 @@ export default function Contactanos() {
     return null;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationError = validateForm();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
 
-    if (validationError) {
-      setError(validationError);
-      setSuccess("");
-      return;
-    }
+      const validationError = validateForm();
 
-    setError("");
-    setSuccess("Formulario enviado correctamente");
-    console.log("Datos enviados:", formData);
-    
-    setFormData(initialFormState);
+      if (validationError) {
+        setError(validationError);
+        setSuccess("");
+        return;
+      }
 
-    setTimeout(() => setSuccess(""), 5000);
-  };
+      setError("");
+
+      try {
+
+        const response = await fetch("https://hydromagic.mx/contacto.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          setSuccess("Formulario enviado correctamente");
+          setFormData(initialFormState);
+        } else {
+          setError("Error al enviar formulario");
+        }
+
+      } catch (err) {
+        console.error(err);
+        setError("Error de conexión");
+      }
+
+      setTimeout(() => {
+        setSuccess("");
+      }, 5000);
+    };
+
 
   return (
     <section id="contacto" ref={sectionRef} className={`contact-section ${isVisible ? "contact-show" : ""}`}>
